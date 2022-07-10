@@ -13,11 +13,13 @@ def ShowAttempt(atts, word, colors):
     for guess in guesses: # this for loop prints every guess in the guesses list
         print(guess)
     atts += 1 # adds an attempt 
-    if str(word.upper() + " " + "🟩🟩🟩🟩🟩") in guesses: # if the player got the answer, win
+    if str(word.upper() + " " + "🟩🟩🟩🟩🟩") in guesses: # if the player got the answer, win and send the link of the defintion of the word
         print("Congrats! You won. The answer was " + answer.upper() + ".")
+        print("Here is the definition of " + answer.replace("\n", "") + ": https://www.google.com/search?q=" + answer.replace("\n", "") + "+definition+english")
         exit()
-    elif atts == 7: # if the player has not gotten the answer in 6 guesses, lose
+    elif atts == 7: # if the player has not gotten the answer in 6 guesses, lose and send the link of the defintion of the word
         print("Aw man... You lost. The answer was " + answer.upper() + ".")
+        print("Here is the definition of " + answer.replace("\n", "") + ": https://www.google.com/search?q=" + answer.replace("\n", "") + "+definition+english")
         exit()
     else:
         DoAttempt(atts) # continue the loop
@@ -47,4 +49,4 @@ guesses = [] # this will be used for the ShowAttempt() function
 attempt = 1
 answer, poswords = findWord() # gets the answer and all the possible words from the findWord() function
 print("\n"*15) #skips 15 lines
-DoAttempt(attempt) 
+DoAttempt(attempt)
